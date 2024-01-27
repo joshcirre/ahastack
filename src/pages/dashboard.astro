@@ -1,0 +1,17 @@
+---
+import { appwrite } from "../lib/appwrite";
+
+const { cookies, redirect } = Astro;
+
+await appwrite.account.getSession("current").then(function (response) {
+  console.log(response);
+});
+
+const email = cookies.get("email");
+---
+
+<h1>Welcome {email}</h1>
+<p>We are happy to see you here</p>
+<form action="/api/auth/signout">
+  <button type="submit">Sign out</button>
+</form>

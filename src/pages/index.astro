@@ -1,0 +1,29 @@
+---
+const count = 0;
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Home | Next.js + TypeScript Example">
+  <div x-data="{ count: 10 }">
+    <h1 class="text-4xl">Count: <span id="count" x-text="count"></span></h1>
+    <button
+      @click="count++"
+      type="button"
+      class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-100 rounded-md text-neutral-500 bg-neutral-50 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-100 hover:text-neutral-600 hover:bg-neutral-100"
+    >
+      Increment
+    </button>
+    <button
+      @click="count--"
+      class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-100 rounded-md text-neutral-500 bg-neutral-50 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-100 hover:text-neutral-600 hover:bg-neutral-100"
+    >
+      Decrement
+    </button>
+
+    <div x-data="{ expanded: false }">
+      <button @click="expanded = ! expanded">Toggle Content</button>
+
+      <p id="foo" x-show="expanded" x-collapse>Lorem ipsum</p>
+    </div>
+  </div>
+</MainLayout>
